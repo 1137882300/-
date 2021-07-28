@@ -1,8 +1,7 @@
 package com.zhong;
 
+import com.zhong.enums.SortTypeEnum;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * @author zzh

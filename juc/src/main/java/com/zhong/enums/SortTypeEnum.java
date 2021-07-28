@@ -1,4 +1,4 @@
-package com.zhong;
+package com.zhong.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 
