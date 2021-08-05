@@ -3,6 +3,7 @@ package com.zhong;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.google.common.collect.Lists;
 import com.zhong.entity.User;
+import javafx.util.Pair;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +23,8 @@ public class LambdaDemo {
 
 	User user = new User();
 
+	List<Long> LongList = Lists.newArrayList();
+
 	@Before
 	public void init(){
 		User u1 = new User(11, 1, "mao",true, Lists.newArrayList());
@@ -34,6 +37,15 @@ public class LambdaDemo {
 		User u7 = new User(66, 7, "yu",true, Lists.newArrayList());
 
 		List<User> list = Arrays.asList(u1,u2,u3,u4,u5,u6,u7,u8);
+
+
+		LongList.add(12313213L);
+		LongList.add(22123213L);
+		LongList.add(32313213L);
+		LongList.add(42313213L);
+		LongList.add(52313213L);
+		LongList.add(62313213L);
+		LongList.add(72313213L);
 	}
 
 	@Test
@@ -135,6 +147,37 @@ public class LambdaDemo {
 
 	}
 
+	@Test
+	public void foreach(){
+		StringBuffer stringBuffer = new StringBuffer();
+		StringBuilder stringBuilder = new StringBuilder();
+		ListIterator<Long> iterator = LongList.listIterator();
+		while (iterator.hasNext()){
+//			stringBuffer.append(iterator.next());
+			stringBuilder.append(iterator.next());
+			if (iterator.hasNext()){
+//				stringBuffer.append("|");
+				stringBuilder.append("|");
+			}
+		}
+//		System.out.println(stringBuffer);
+		System.out.println(stringBuilder);
+	}
 
+	@Test
+	public void test(){
+		String ss = null;
+		String qq = "hi";
+		if (qq.equals(ss)){ // 这样不会爆空指针异常
+			System.out.println(qq);
+		}
+	}
+
+	@Test
+	public void pair(){
+		Pair<Integer,String> pair = new Pair<>(10,"hi");
+		System.out.println(pair.getKey());
+		System.out.println(pair.getValue());
+	}
 
 }
