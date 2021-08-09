@@ -78,6 +78,13 @@ public class GuavaDemo {
 		Table<Integer, String, String> table = HashBasedTable.create();
 		table.put(18, "男", "yideng");
 		table.put(18, "女", "Lily");
+
+		Set<Integer> integers = table.rowKeySet();
+		System.out.println(integers);
+
+
+		System.out.println(table.row(1));
+
 		System.out.println(table.get(18, "男")); // 输出 yideng
 // 这其实是一个二维的Map，可以查看行数据
 		Map<String, String> row = table.row(18);

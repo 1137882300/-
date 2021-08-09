@@ -1,6 +1,12 @@
 package com.zhong;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
+import com.zhong.entity.Card;
+import com.zhong.entity.InteractiveTaskCard;
 import org.junit.Test;
 
 import java.util.*;
@@ -59,5 +65,34 @@ public class MapDemo {
 		Map<String, Integer> map = stream.collect(Collectors.toMap(q->q, String::length));
 		System.out.println(map);//{very=4, are=3, good=4, you=3}
 	}
+
+	@Test
+	public void twoMap(){
+		HashMap<String, String> btn1 = Maps.newHashMap();
+		btn1.put("key","yes");
+		btn1.put("name","通过");
+		btn1.put("color","blue");
+		HashMap<String, String> btn2 = Maps.newHashMap();
+		btn2.put("key","no");
+		btn2.put("name","拒绝");
+		btn2.put("color","blue");
+
+		InteractiveTaskCard interactiveTaskCard = new InteractiveTaskCard();
+		interactiveTaskCard.setTaskId(123L);
+		interactiveTaskCard.setBtn(Lists.newArrayList(btn1,btn2));
+		interactiveTaskCard.setTitle("title");
+		interactiveTaskCard.setUrl("url");
+		interactiveTaskCard.setDescription("description");
+
+		Card card = Card.builder()
+						.agentId("agentid").touser(Lists.newArrayList("user1","user2"))
+						.msgtype("mstype")
+						.interactiveTaskCard(interactiveTaskCard)
+						.build();
+
+		System.out.println(JSON.toJSON(card));
+
+	}
+
 
 }
