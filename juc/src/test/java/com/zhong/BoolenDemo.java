@@ -35,5 +35,11 @@ public class BoolenDemo {
 
 	}
 
+	@Test
+	public void boole(){
+		boolean ff = false;
+		System.out.println(ff ? "ni" : "no");
+	}
+
 
 }
