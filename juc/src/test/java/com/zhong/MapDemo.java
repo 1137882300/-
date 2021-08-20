@@ -5,6 +5,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
+import com.zhong.entity.Array;
 import com.zhong.entity.Card;
 import com.zhong.entity.InteractiveTaskCard;
 import org.junit.Test;
@@ -91,6 +92,20 @@ public class MapDemo {
 						.build();
 
 		System.out.println(JSON.toJSON(card));
+
+	}
+
+	@Test
+	public void list(){
+		Array array = new Array();
+	 	List<String> list = Lists.newArrayList();
+	 	list.add("yyoo");
+	 	list.add("xxww");
+		array.setUserids(list);
+
+		System.out.println(JSON.toJSON(list));
+		System.out.println(JSON.toJSON(array));
+
 
 	}
 
