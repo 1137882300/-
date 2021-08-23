@@ -1,10 +1,7 @@
 package com.zhong;
 
 import com.alibaba.fastjson.JSON;
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Multimap;
+import com.google.common.collect.*;
 import com.zhong.entity.Array;
 import com.zhong.entity.Card;
 import com.zhong.entity.InteractiveTaskCard;
@@ -102,12 +99,18 @@ public class MapDemo {
 	 	list.add("yyoo");
 	 	list.add("xxww");
 		array.setUserids(list);
-
+		HashSet<Object> objects = Sets.newHashSet();
 		System.out.println(JSON.toJSON(list));
 		System.out.println(JSON.toJSON(array));
 
 
+		System.gc();
+		System.out.println();
+
+
 	}
+
+
 
 
 }
